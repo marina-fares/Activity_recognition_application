@@ -1,2 +1,3 @@
 # GP_design
-Design file for graduation project 
+
+Desktop application for video recognition application
