@@ -1,3 +1,3 @@
 # GP_design
 
-Desktop application for video recognition application
+Desktop application for video recognition projrct
