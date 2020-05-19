@@ -2226,7 +2226,7 @@ PlotWidget {
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="home_btn">
          <property name="minimumSize">
           <size>
            <width>84</width>
@@ -2240,7 +2240,7 @@ PlotWidget {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="icone.qrc">
+          <iconset resource="../../Graduation Project/icone.qrc">
            <normaloff>:/home.jpg</normaloff>:/home.jpg</iconset>
          </property>
          <property name="iconSize">
@@ -2255,7 +2255,7 @@ PlotWidget {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="video_btn">
          <property name="minimumSize">
           <size>
            <width>84</width>
@@ -2269,7 +2269,7 @@ PlotWidget {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="icone.qrc">
+          <iconset resource="../../Graduation Project/icone.qrc">
            <normaloff>:/img1.svg</normaloff>:/img1.svg</iconset>
          </property>
          <property name="iconSize">
@@ -2284,7 +2284,7 @@ PlotWidget {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="history_btn">
          <property name="minimumSize">
           <size>
            <width>84</width>
@@ -2298,7 +2298,7 @@ PlotWidget {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="icone.qrc">
+          <iconset resource="../../Graduation Project/icone.qrc">
            <normaloff>:/history.png</normaloff>:/history.png</iconset>
          </property>
          <property name="iconSize">
@@ -2418,7 +2418,7 @@ border: 0px solid #19232D;
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="icone.qrc">
+          <iconset resource="../../Graduation Project/icone.qrc">
            <normaloff>:/img1.svg</normaloff>:/img1.svg</iconset>
          </property>
          <property name="iconSize">
@@ -2458,7 +2458,7 @@ background-color:pink;
         </widget>
        </item>
        <item row="3" column="0" colspan="2">
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="start_btn">
          <property name="minimumSize">
           <size>
            <width>88</width>
@@ -2481,7 +2481,7 @@ color:black;</string>
   </widget>
  </widget>
  <resources>
-  <include location="icone.qrc"/>
+  <include location="../../Graduation Project/icone.qrc"/>
  </resources>
  <connections/>
 </ui>
