@@ -14,7 +14,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
+   <string notr="true">frame{
+background-color : yollow;
+}
 /* ---------------------------------------------------------------------------
 
     Created by the qtsass compiler v0.1.1
@@ -2194,133 +2196,18 @@ PlotWidget {
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QFrame" name="frame">
-      <property name="minimumSize">
-       <size>
-        <width>130</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">  background-color: pink;
-  border: 0px solid #19232D;
-  spacing: 0px;
-  padding: 2px;
-</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="home_btn">
-         <property name="minimumSize">
-          <size>
-           <width>84</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:white;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="../../Graduation Project/icone.qrc">
-           <normaloff>:/home.jpg</normaloff>:/home.jpg</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>60</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="video_btn">
-         <property name="minimumSize">
-          <size>
-           <width>84</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:white;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="../../Graduation Project/icone.qrc">
-           <normaloff>:/img1.svg</normaloff>:/img1.svg</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>60</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="history_btn">
-         <property name="minimumSize">
-          <size>
-           <width>84</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:white;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="../../Graduation Project/icone.qrc">
-           <normaloff>:/history.png</normaloff>:/history.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>60</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="1">
      <widget class="QFrame" name="frame_2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>30</height>
+        <width>157</width>
+        <height>29</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -2328,6 +2215,13 @@ PlotWidget {
         <width>16777215</width>
         <height>16777215</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
@@ -2341,17 +2235,27 @@ PlotWidget {
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <property name="lineWidth">
+       <number>8</number>
+      </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <property name="bottomMargin">
         <number>50</number>
        </property>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_5">
+       <item row="3" column="2">
+        <widget class="QPushButton" name="browse_btn">
          <property name="minimumSize">
           <size>
            <width>88</width>
-           <height>30</height>
+           <height>36</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color:pink;
@@ -2362,13 +2266,92 @@ color:black;</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="4" column="1" colspan="2">
+        <widget class="QComboBox" name="comboBox">
+         <property name="minimumSize">
+          <size>
+           <width>157</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:black;
+background-color:pink;
+</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>i3d-kinetics</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Joint Recognition</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>50</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="1" colspan="2">
+        <widget class="QPushButton" name="start_btn">
+         <property name="minimumSize">
+          <size>
+           <width>88</width>
+           <height>36</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:pink;
+color:black;</string>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
         <widget class="QLineEdit" name="lineEdit">
          <property name="minimumSize">
           <size>
-           <width>0</width>
-           <height>30</height>
+           <width>188</width>
+           <height>36</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color:white;
@@ -2389,7 +2372,7 @@ color: black;
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
+       <item row="0" column="1">
         <widget class="QPushButton" name="pushButton_4">
          <property name="enabled">
           <bool>false</bool>
@@ -2397,7 +2380,7 @@ color: black;
          <property name="minimumSize">
           <size>
            <width>86</width>
-           <height>30</height>
+           <height>29</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -2405,6 +2388,13 @@ color: black;
            <width>16777215</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
          </property>
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
@@ -2418,7 +2408,7 @@ border: 0px solid #19232D;
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Graduation Project/icone.qrc">
+          <iconset>
            <normaloff>:/img1.svg</normaloff>:/img1.svg</iconset>
          </property>
          <property name="iconSize">
@@ -2432,45 +2422,234 @@ border: 0px solid #19232D;
          </property>
         </widget>
        </item>
-       <item row="2" column="0" colspan="2">
-        <widget class="QComboBox" name="comboBox">
-         <property name="minimumSize">
+       <item row="3" column="3">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>0</width>
-           <height>22</height>
+           <width>50</width>
+           <height>20</height>
           </size>
          </property>
-         <property name="styleSheet">
-          <string notr="true">color:black;
-background-color:pink;
-</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>i3d-kinetics</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Joint Recognition</string>
-          </property>
-         </item>
-        </widget>
+        </spacer>
        </item>
-       <item row="3" column="0" colspan="2">
-        <widget class="QPushButton" name="start_btn">
-         <property name="minimumSize">
-          <size>
-           <width>88</width>
-           <height>30</height>
-          </size>
-         </property>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton">
          <property name="styleSheet">
-          <string notr="true">background-color:pink;
-color:black;</string>
+          <string notr="true">border:0;</string>
          </property>
          <property name="text">
-          <string>Start</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/video.svg</normaloff>:/video.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>108</width>
+           <height>114</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>29</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: pink;
+border: 0px solid #19232D;
+spacing: 0px;
+padding: 2px;
+
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>4</number>
+      </property>
+      <property name="midLineWidth">
+       <number>21</number>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="2" column="0">
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>45</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="3">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>45</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="video_btn">
+         <property name="minimumSize">
+          <size>
+           <width>84</width>
+           <height>29</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/video.svg</normaloff>:/video.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="history_btn">
+         <property name="minimumSize">
+          <size>
+           <width>84</width>
+           <height>34</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/history.png</normaloff>:/history.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="home_btn">
+         <property name="minimumSize">
+          <size>
+           <width>84</width>
+           <height>29</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>13</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:pink
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/home.png</normaloff>:/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>87</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -2481,7 +2660,7 @@ color:black;</string>
   </widget>
  </widget>
  <resources>
-  <include location="../../Graduation Project/icone.qrc"/>
+  <include location="icons.qrc"/>
  </resources>
  <connections/>
 </ui>

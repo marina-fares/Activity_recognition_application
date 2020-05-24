@@ -1,7 +1,8 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file>img1.svg</file>
-    <file>home.jpg</file>
+    <file>video.svg</file>
+    <file>home.png</file>
+    <file>home1.png</file>
     <file>history.png</file>
 </qresource>
 </RCC>

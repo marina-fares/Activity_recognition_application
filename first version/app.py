@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtCore import pyqtSlot
-import icon_rc
+import icons_rc
 
 import sys
 
@@ -16,7 +16,7 @@ class Ui(QtWidgets.QMainWindow):
         self.handel_buttons()
 
     def handel_buttons(self):
-        button = self.start_btn.clicked.connect(self.test)
+        button = self.home_btn.clicked.connect(self.test)
 
     def test(self):
         print("Done")
@@ -26,3 +26,16 @@ class Ui(QtWidgets.QMainWindow):
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
 app.exec_()
+
+
+
+''' 
+buttons' names ::
+
+1. browse_btn
+2. start_btn
+3. home_btn
+4. video_btn
+5. history_btn
+
+'''
