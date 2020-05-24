@@ -1,8 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>video.svg</file>
-    <file>home.png</file>
-    <file>home1.png</file>
-    <file>history.png</file>
-</qresource>
-</RCC>

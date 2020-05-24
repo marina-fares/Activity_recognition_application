@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QLineEdit,QFileDialog,QMainWindow,QApplication
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtCore import pyqtSlot
-import icon_rc
+import icons_rc
 import sys
 
 from kinetics_i3d_master.preprocessing import preprocessing
