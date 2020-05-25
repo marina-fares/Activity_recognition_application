@@ -2242,7 +2242,7 @@ PlotWidget {
        <property name="bottomMargin">
         <number>50</number>
        </property>
-       <item row="3" column="2">
+       <item row="4" column="2">
         <widget class="QPushButton" name="browse_btn">
          <property name="minimumSize">
           <size>
@@ -2266,7 +2266,23 @@ color:black;</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1" colspan="2">
+       <item row="4" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>80</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="1" colspan="2">
         <widget class="QComboBox" name="comboBox">
          <property name="minimumSize">
           <size>
@@ -2298,23 +2314,7 @@ background-color:pink;
          </item>
         </widget>
        </item>
-       <item row="3" column="0">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>50</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="5" column="1" colspan="2">
+       <item row="6" column="1" colspan="2">
         <widget class="QPushButton" name="start_btn">
          <property name="minimumSize">
           <size>
@@ -2338,7 +2338,23 @@ color:black;</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item row="4" column="3">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>80</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="1">
         <widget class="QLineEdit" name="lineEdit">
          <property name="minimumSize">
           <size>
@@ -2422,22 +2438,6 @@ border: 0px solid #19232D;
          </property>
         </widget>
        </item>
-       <item row="3" column="3">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>50</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="1" column="1">
         <widget class="QPushButton" name="pushButton">
          <property name="styleSheet">
@@ -2452,8 +2452,8 @@ border: 0px solid #19232D;
          </property>
          <property name="iconSize">
           <size>
-           <width>108</width>
-           <height>114</height>
+           <width>140</width>
+           <height>140</height>
           </size>
          </property>
          <property name="flat">
@@ -2644,8 +2644,8 @@ padding: 2px;
          </property>
          <property name="iconSize">
           <size>
-           <width>87</width>
-           <height>70</height>
+           <width>90</width>
+           <height>90</height>
           </size>
          </property>
          <property name="flat">
