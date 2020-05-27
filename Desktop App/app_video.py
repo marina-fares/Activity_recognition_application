@@ -10,8 +10,7 @@ import sys
 from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 
-from PyQt5.QtWidgets import (QApplication, QFileDialog, QHBoxLayout, QLabel, 
-        QPushButton, QSizePolicy, QSlider, QStyle, QVBoxLayout, QWidget, QStatusBar)
+from PyQt5.QtWidgets import QApplication, QFileDialog, QHBoxLayout, QLabel, QPushButton, QSizePolicy, QSlider, QStyle, QVBoxLayout, QWidget, QStatusBar
 
 
 
@@ -19,51 +18,28 @@ class Ui(QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi('design_video.ui', self)
-        
-
-
         self.start_video()
-        
-		
         self.show()
         self.file_name = None
-	
-        
-	
-        
 
-		
 
     def start_video(self):
 		
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
-
         videoWidget = QVideoWidget()
         videoWidget.setFixedHeight(250)
-		
         self.play_btn.setEnabled(False)
         self.play_btn.setFixedHeight(24)
         self.play_btn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         self.play_btn.clicked.connect(self.play)
-
         self.h_slider.setRange(0, 0)
         self.h_slider.sliderMoved.connect(self.setPosition)
-
-        
-
         self.mediaPlayer.setVideoOutput(videoWidget)
         self.mediaPlayer.stateChanged.connect(self.mediaStateChanged)
-       
         self.mediaPlayer.positionChanged.connect(self.positionChanged)
         self.mediaPlayer.durationChanged.connect(self.durationChanged)
         self.mediaPlayer.error.connect(self.handleError)
-		
-        
         self.verticalLayout.addWidget(videoWidget,1)
-        
-        
-        
-
         self.frame_2.setLayout(self.verticalLayout)
         self.abrir()
 		
@@ -89,8 +65,8 @@ class Ui(QMainWindow):
 	    self.mediaPlayer.setPosition(position)
 
     def handleError(self):
-	    self.playButton.setEnabled(False)
-	    self.statusBar.showMessage("Error: " + self.mediaPlayer.errorString())
+	    self.play_btn.setEnabled(False)
+	    self.statusbar.showMessage("Error: " + self.mediaPlayer.errorString())
 
     def mediaStateChanged(self, state):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:

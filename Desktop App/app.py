@@ -6,6 +6,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtCore import pyqtSlot
 import icons_rc
 import sys
+import os
 
 from kinetics_i3d_master.preprocessing import preprocessing
 from kinetics_i3d_master.evaluate_sample import activity_recogniton
@@ -17,6 +18,11 @@ class Ui(QMainWindow):
         self.show()
         self.handel_buttons()
         self.file_name = None
+        self.output_path = None
+        self.first_run = True
+        self.working_dir = os.getcwd()
+        self.main_output_folder_structure = None
+        
 
     def handel_buttons(self):
         self.start_btn.clicked.connect(self.start_processing)
@@ -26,9 +32,14 @@ class Ui(QMainWindow):
         print("Done")
         print(self.comboBox.currentText())
         if(self.file_name):
+            os.chdir(self.working_dir)
             numpy_frames = preprocessing(self.file_name)
-            activity_recogniton(self.file_name,numpy_frames)
-
+            if not self.output_path:
+                self.output_path = os.path.dirname(os.path.abspath(self.file_name))
+            self.main_output_folder_structure = activity_recogniton(self.file_name,numpy_frames,self.output_path,self.first_run)
+            self.first_run = False
+            
+            
 
     def browse_video(self):
         print("Done")
@@ -38,6 +49,13 @@ class Ui(QMainWindow):
         if fileName:
             print(fileName)
             self.file_name = fileName
+            #print(os.path.dirname(os.path.abspath(fileName)))
+            #print(os.getcwd())
+            #os.chdir(os.path.dirname(os.path.abspath(fileName)))
+            #print(os.getcwd())
+            #dir_name = "test"
+            #os.mkdir(dir_name)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
