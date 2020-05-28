@@ -8,6 +8,9 @@ import icons_rc
 import sys
 import os
 
+from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
+from PyQt5.QtMultimediaWidgets import QVideoWidget
+
 from kinetics_i3d_master.preprocessing import preprocessing
 from kinetics_i3d_master.evaluate_sample import activity_recogniton
 
@@ -16,9 +19,10 @@ from PyQt5.QtWidgets import QApplication, QFileDialog, QHBoxLayout, QLabel, QPus
 class Ui(QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
-        uic.loadUi('main.ui', self)
+        uic.loadUi('main1.ui', self)
+        self.home_page.show()
         self.show()
-		self.start_video()
+        self.start_video()
         self.handel_buttons()
         self.file_name = None
         self.output_path = None
@@ -26,8 +30,7 @@ class Ui(QMainWindow):
         self.working_dir = os.getcwd()
         self.main_output_folder_structure = None
 
-    def start_video(self):
-		
+    def start_video(self):	
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         videoWidget = QVideoWidget()
         videoWidget.setFixedHeight(250)
@@ -41,13 +44,13 @@ class Ui(QMainWindow):
         self.mediaPlayer.stateChanged.connect(self.mediaStateChanged)
         self.mediaPlayer.positionChanged.connect(self.positionChanged)
         self.mediaPlayer.durationChanged.connect(self.durationChanged)
-        self.mediaPlayer.error.connect(self.handleError)
+
         self.verticalLayout.addWidget(videoWidget,1)
         self.frame_2.setLayout(self.verticalLayout)
         self.abrir()
 		
     def abrir(self):
-        self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile("test_video.mp4")))
+        self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile("/home/marina/Graduation project/kinetics-marina/GP_design/Desktop App/test_video.mp4")))
         self.play_btn.setEnabled(True)
         self.play()
 
@@ -81,8 +84,8 @@ class Ui(QMainWindow):
         
 
     def handel_buttons(self):
-        self.start_btn.clicked.connect(self.start_processing)
-        self.browse_btn.clicked.connect(self.browse_video)
+        self.start_btn_2.clicked.connect(self.start_processing)
+        self.browse_btn_2.clicked.connect(self.browse_video)
 
     def start_processing(self):
         print("Done")
@@ -93,12 +96,19 @@ class Ui(QMainWindow):
             if not self.output_path:
                 self.output_path = os.path.dirname(os.path.abspath(self.file_name))
             self.main_output_folder_structure = activity_recogniton(self.file_name,numpy_frames,self.output_path,self.first_run)
+            print("\n\n\n\n")
+            if len(self.main_output_folder_structure.sub_folder_list)>0:
+                print(self.main_output_folder_structure.sub_folder_list[0].path)
+            else:
+                print("no sub folders")
+            print(self.main_output_folder_structure.path)
+            print(self.main_output_folder_structure.main_video)
+            print("\n\n\n\n")
             self.first_run = False
             
             
 
     def browse_video(self):
-        print("Done")
         options = QFileDialog.Options()
         #options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"Input Video", "","Videos (*.mp4 *.avi)", options=options)

@@ -38,7 +38,7 @@ class Ui(QMainWindow):
         self.mediaPlayer.stateChanged.connect(self.mediaStateChanged)
         self.mediaPlayer.positionChanged.connect(self.positionChanged)
         self.mediaPlayer.durationChanged.connect(self.durationChanged)
-        self.mediaPlayer.error.connect(self.handleError)
+
         self.verticalLayout.addWidget(videoWidget,1)
         self.frame_2.setLayout(self.verticalLayout)
         self.abrir()
@@ -64,9 +64,6 @@ class Ui(QMainWindow):
     def setPosition(self, position):
 	    self.mediaPlayer.setPosition(position)
 
-    def handleError(self):
-	    self.play_btn.setEnabled(False)
-	    self.statusbar.showMessage("Error: " + self.mediaPlayer.errorString())
 
     def mediaStateChanged(self, state):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
