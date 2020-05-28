@@ -125,14 +125,14 @@ QMainWindow::separator:horizontal {
   width: 5px;
   margin-top: 2px;
   margin-bottom: 2px;
-  image: url(&quot;:/qss_icons/rc/toolbar_separator_vertical.png&quot;);
+
 }
 
 QMainWindow::separator:vertical {
   height: 5px;
   margin-left: 2px;
   margin-right: 2px;
-  image: url(&quot;:/qss_icons/rc/toolbar_separator_horizontal.png&quot;);
+
 }
 
 /* QToolTip ---------------------------------------------------------------
