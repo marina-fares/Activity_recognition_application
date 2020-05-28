@@ -21,8 +21,14 @@ class Ui(QMainWindow):
         self.start_video()
         self.show()
         self.file_name = None
-
-
+        self.draw()
+		
+    def draw(self):
+        
+        self.tree_graph.setHeaderLabels(['Main_Folder', 'Sub_folders', 'clibs'])
+        I1 = QtWidgets.QTreeWidgetItem(self.tree_graph, ['folder1', 'sub1'])
+        I2 = QtWidgets.QTreeWidgetItem(I1, ['folder1', 'sub1'])
+        
     def start_video(self):
 		
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
