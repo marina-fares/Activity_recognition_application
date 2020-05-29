@@ -14,13 +14,12 @@ from PyQt5.QtMultimediaWidgets import QVideoWidget
 from kinetics_i3d_master.preprocessing import preprocessing
 from kinetics_i3d_master.evaluate_sample import activity_recogniton
 
-from PyQt5.QtWidgets import QApplication, QFileDialog, QHBoxLayout, QLabel, QPushButton, QSizePolicy, QSlider, QStyle, QVBoxLayout, QWidget, QStatusBar, QTreeView
+from PyQt5.QtWidgets import QApplication, QFileDialog, QHBoxLayout, QLabel, QPushButton, QSizePolicy, QSlider, QStyle, QVBoxLayout, QWidget, QStatusBar, QTreeView, QGridLayout
 
 class Ui(QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
-        uic.loadUi('main1.ui', self)
-        self.home_page.show()
+        uic.loadUi('main2.ui', self)
         self.show()
         self.start_video()
         self.handel_buttons()
@@ -30,7 +29,12 @@ class Ui(QMainWindow):
         self.working_dir = os.getcwd()
         self.main_output_folder_structure = None
 
-        
+        self.history_layout = QGridLayout()
+        self.tab_3.setLayout(self.history_layout)
+
+        self.tabWidget.setTabEnabled(1,False)
+        self.tabWidget.setTabEnabled(2,False)
+        self.tabWidget.setCurrentIndex(0)
 
     def draw(self, main_folder_path):        
         if self.first_run :
@@ -49,12 +53,28 @@ class Ui(QMainWindow):
             self.model.setRootPath(dirpath)
             self.tree.setModel(self.model)
             self.tree.setRootIndex(self.model.index(dirpath))
-            
-   
+            self.tree.doubleClicked.connect(self.test)
+
+    def draw_history(self, main_folder_path):        
+        dirpath = main_folder_path
+        self.model_h = QFileSystemModel()
+        self.model_h.setRootPath(dirpath)
+        self.tree_2 =  QTreeView()
+        self.tree_2.setModel(self.model_h)
+        self.tree_2.setRootIndex(self.model_h.index(dirpath))
+
+        self.history_layout.addWidget(self.tree_2)
+        self.tree.doubleClicked.connect(self.runvideo)
+        self.first_run = False
+
+    def runvideo(self, signal):
+        file_path=self.model_h.filePath(signal)
+        self.abrir(file_path)
+
+
     def test(self, signal):
         file_path=self.model.filePath(signal)
         self.abrir(file_path)
-        print(file_path)
 
     
         
@@ -77,7 +97,7 @@ class Ui(QMainWindow):
 
         self.verticalLayout.addWidget(videoWidget,1)
         self.frame_2.setLayout(self.verticalLayout)
-        self.abrir("/home/marina/Graduation project/kinetics-marina/GP_design/Desktop App/test_video.mp4")
+        #self.abrir("/home/marina/Graduation project/kinetics-marina/GP_design/Desktop App/test_video.mp4")
 		
     def abrir(self,path):
         self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile(path)))
@@ -114,8 +134,22 @@ class Ui(QMainWindow):
         
 
     def handel_buttons(self):
-        self.start_btn_2.clicked.connect(self.start_processing)
-        self.browse_btn_2.clicked.connect(self.browse_video)
+        self.start_btn.clicked.connect(self.start_processing)
+        self.browse_btn.clicked.connect(self.browse_video)
+        self.home_btn.clicked.connect(self.homefun)
+        self.video_btn.clicked.connect(self.videofun)
+        self.history_btn.clicked.connect(self.historyfun)
+        
+
+    def homefun(self):
+        self.tabWidget.setCurrentIndex(0)
+
+    def videofun(self):
+        self.tabWidget.setCurrentIndex(1)
+
+    def historyfun(self):
+        self.tabWidget.setCurrentIndex(2)
+
 
     def start_processing(self):
         print(self.comboBox.currentText())
@@ -127,6 +161,7 @@ class Ui(QMainWindow):
             self.main_output_folder_structure = activity_recogniton(self.file_name,numpy_frames,self.output_path,self.first_run)
             
             self.draw( self.main_output_folder_structure.path)
+            self.draw_history( self.main_output_folder_structure.path)
             self.tabWidget.setCurrentIndex(1)
             
             
@@ -136,11 +171,11 @@ class Ui(QMainWindow):
         #options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"Input Video", "","Videos (*.mp4 *.avi)", options=options)
         if fileName:
-            self.lineEdit_2.setText(fileName)
+            self.input_line.setText(fileName)
             #print(fileName)
             self.file_name = fileName
         else:
-            self.file_name = self.lineEdit_2.text()
+            self.file_name = self.input_line.text()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
