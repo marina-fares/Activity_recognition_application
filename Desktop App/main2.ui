@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>799</width>
+    <height>563</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -4441,7 +4441,7 @@ padding: 2px;
     <item row="0" column="1">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -4494,23 +4494,29 @@ padding: 2px;
            <property name="bottomMargin">
             <number>50</number>
            </property>
-           <item row="3" column="3">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+           <item row="5" column="2">
+            <widget class="QPushButton" name="output_btn">
+             <property name="minimumSize">
               <size>
-               <width>80</width>
-               <height>20</height>
+               <width>88</width>
+               <height>36</height>
               </size>
              </property>
-            </spacer>
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:#5EA99D;
+color:black;</string>
+             </property>
+             <property name="text">
+              <string>Browse</string>
+             </property>
+            </widget>
            </item>
-           <item row="6" column="1" colspan="2">
+           <item row="7" column="1" colspan="2">
             <widget class="QPushButton" name="start_btn">
              <property name="minimumSize">
               <size>
@@ -4533,6 +4539,22 @@ color:black;</string>
               <string>Start</string>
              </property>
             </widget>
+           </item>
+           <item row="3" column="3">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>80</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item row="3" column="2">
             <widget class="QPushButton" name="browse_btn">
@@ -4558,7 +4580,7 @@ color:black;</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1" colspan="2">
+           <item row="6" column="1" colspan="2">
             <widget class="QComboBox" name="comboBox">
              <property name="minimumSize">
               <size>
@@ -4588,6 +4610,63 @@ background-color:#5EA99D;
                <string>Joint Recognition</string>
               </property>
              </item>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>36</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:white;
+color:black;
+</string>
+             </property>
+             <property name="placeholderText">
+              <string notr="true" comment="yes" extracomment="yes">Output path</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="input_line">
+             <property name="minimumSize">
+              <size>
+               <width>188</width>
+               <height>36</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:white;
+color: black;
+</string>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="placeholderText">
+              <string notr="true" comment="yes" extracomment="yes">Enter your path</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="3" column="0">
@@ -4629,60 +4708,10 @@ background-color:#5EA99D;
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="input_line">
-             <property name="minimumSize">
-              <size>
-               <width>188</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>13</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:white;
-color: black;
-</string>
-             </property>
-             <property name="dragEnabled">
-              <bool>true</bool>
-             </property>
-             <property name="readOnly">
-              <bool>false</bool>
-             </property>
-             <property name="placeholderText">
-              <string notr="true" comment="yes" extracomment="yes">Enter your path</string>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1" colspan="2">
-            <widget class="QLineEdit" name="lineEdit">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>13</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:white;
-color:black;
-</string>
-             </property>
-             <property name="placeholderText">
-              <string notr="true" comment="yes" extracomment="yes">Output path</string>
+           <item row="8" column="1" colspan="2">
+            <widget class="QProgressBar" name="progressBar">
+             <property name="value">
+              <number>24</number>
              </property>
             </widget>
            </item>
@@ -4727,8 +4756,7 @@ color:black;
            <enum>Qt::LeftToRight</enum>
           </property>
           <property name="styleSheet">
-           <string notr="true">
-</string>
+           <string notr="true"/>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
