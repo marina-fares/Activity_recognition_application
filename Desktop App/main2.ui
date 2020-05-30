@@ -15,7 +15,6 @@
   </property>
   <property name="styleSheet">
    <string notr="true">
-
 QToolTip
 {
      border: 1px solid black;
@@ -33,8 +32,9 @@ QWidget
 
 QTreeView, QListView
 {
-    background-color: white;
+    background-color: #a8dadc;
     margin-left: 5px;
+color:black;
 }
 /*
 QWidget:item:hover
@@ -91,9 +91,10 @@ QWidget:disabled
 
 QAbstractItemView
 {
-    background-color: gray;
+    background-color: white;
     border: 1px solid black;
     border-radius:5px;
+   color : black;
 }
 QAbstractItemView::indicator
 {
@@ -116,18 +117,16 @@ QLineEdit
 
 QPushButton
 {
-    color: #b1b1b1;
     background-color: #1d3557;
     border-width: 0px;
-    padding: 3px;
     margin : 0px;
     font-size: 12px;
-    min-width: 40px;
+    border-radius: 5px;
 }
 
 QPushButton:pressed
 {
-    background-color: gray;
+    background-color: #a8dadc;
 }
 
 QComboBox
@@ -138,10 +137,6 @@ QComboBox
     border-radius: 5;
 }
 
-QComboBox:hover,QPushButton:hover
-{
-    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #1d3557);
-}
 
 
 QComboBox:on
@@ -298,10 +293,8 @@ QPlainTextEdit
 
 QHeaderView::section
 {
-    background-color: gray;
+    background-color: #1d3557;
     color: white;
-    padding-left: 4px;
-    border: 1px solid black;
 }
 
 QCheckBox:disabled
@@ -529,10 +522,19 @@ QAbstractSpinBox {
   margin : 10px;
 
 }
-
-</string>
+QVBoxLayout  {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">border : 0px;
+margin : 0px;
+padding : 0px;</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QFrame" name="frame">
@@ -562,8 +564,9 @@ QAbstractSpinBox {
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">border:1px solid black;
-</string>
+       <string notr="true">border : 0px;
+margin : 0px;
+padding : 0px;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -577,15 +580,13 @@ QAbstractSpinBox {
       <property name="midLineWidth">
        <number>21</number>
       </property>
-      <layout class="QGridLayout" name="gridLayout_3">
-       
-       
-       <item row="1" column="2">
-        <widget class="QPushButton" name="video_btn">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="home_btn">
          <property name="minimumSize">
           <size>
-           <width>52</width>
-           <height>30</height>
+           <width>0</width>
+           <height>120</height>
           </size>
          </property>
          <property name="font">
@@ -594,7 +595,45 @@ QAbstractSpinBox {
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border : 0px;
+margin : 0px;
+padding : 0px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/home.png</normaloff>:/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>200</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="video_btn">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border : 0px;
+margin : 0px;
+padding : 0px;</string>
          </property>
          <property name="text">
           <string/>
@@ -614,7 +653,7 @@ QAbstractSpinBox {
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
+       <item>
         <widget class="QPushButton" name="history_btn">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -624,8 +663,8 @@ QAbstractSpinBox {
          </property>
          <property name="minimumSize">
           <size>
-           <width>52</width>
-           <height>30</height>
+           <width>0</width>
+           <height>120</height>
           </size>
          </property>
          <property name="font">
@@ -634,7 +673,9 @@ QAbstractSpinBox {
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border : 0px;
+margin : 0px;
+padding : 0px;</string>
          </property>
          <property name="text">
           <string/>
@@ -646,37 +687,6 @@ QAbstractSpinBox {
          <property name="iconSize">
           <size>
            <width>90</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="home_btn">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>-1</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="icons.qrc">
-           <normaloff>:/home.png</normaloff>:/home.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>200</width>
            <height>80</height>
           </size>
          </property>
@@ -697,7 +707,7 @@ QAbstractSpinBox {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>true</bool>
@@ -841,19 +851,18 @@ color:black;</string>
             <widget class="QPushButton" name="output_btn">
              <property name="minimumSize">
               <size>
-               <width>52</width>
+               <width>0</width>
                <height>30</height>
               </size>
              </property>
              <property name="font">
               <font>
                <pointsize>-1</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
               </font>
              </property>
              <property name="styleSheet">
               <string notr="true">border:1px solid black;
+border-radius: 5px;
 color:black;
 background-color:#1d3557;</string>
              </property>
@@ -862,34 +871,11 @@ background-color:#1d3557;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1" colspan="2">
-            <widget class="QPushButton" name="pushButton">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="icons.qrc">
-               <normaloff>:/video.svg</normaloff>:/video.svg</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>140</width>
-               <height>140</height>
-              </size>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="3">
             <widget class="QPushButton" name="browse_btn">
              <property name="minimumSize">
               <size>
-               <width>52</width>
+               <width>0</width>
                <height>30</height>
               </size>
              </property>
@@ -900,6 +886,7 @@ background-color:#1d3557;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">border:1px solid black;
+border-radius: 5px;
 color:black;
 background-color:#1d3557;</string>
              </property>
@@ -965,7 +952,7 @@ color:black;</string>
             <widget class="QPushButton" name="start_btn">
              <property name="minimumSize">
               <size>
-               <width>52</width>
+               <width>0</width>
                <height>30</height>
               </size>
              </property>
@@ -976,7 +963,8 @@ color:black;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">border:1px solid black;
-color: black;
+border-radius: 5px;
+color:black;
 background-color:#1d3557;</string>
              </property>
              <property name="text">
@@ -1032,6 +1020,29 @@ color:black;</string>
               <string notr="true" comment="yes" extracomment="yes">Output path</string>
              </property>
              <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="3">
+            <widget class="QPushButton" name="pushButton">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="icons.qrc">
+               <normaloff>:/video.svg</normaloff>:/video.svg</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>140</width>
+               <height>140</height>
+              </size>
+             </property>
+             <property name="flat">
               <bool>true</bool>
              </property>
             </widget>
