@@ -99,8 +99,8 @@ class Ui(QMainWindow):
         # creating an empty vlc media player
         self.mediaPlayer = self.instance.media_player_new()
         self.videoWidget = QVideoWidget()
-        self.videoWidget.setFixedHeight(250)
-        self.videoWidget.setFixedWidth(500)
+        self.videoWidget.setStyleSheet("background-color : black")
+        self.videoWidget.setFixedHeight(300)
         self.play_btn = QPushButton()
         self.play_btn.setEnabled(False)
         self.play_btn.setFixedHeight(24)
