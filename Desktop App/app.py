@@ -100,11 +100,14 @@ class Ui(QMainWindow):
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         videoWidget = QVideoWidget()
         videoWidget.setStyleSheet("background-color : black")
-        
+        videoWidget.setFixedHeight(300)
+
         self.play_btn = QPushButton()
         self.play_btn.setEnabled(False)
         self.play_btn.setFixedHeight(24)
         self.play_btn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
+        self.play_btn.setText("Play")
+        self.play_btn.setStyleSheet("color : white")
         self.play_btn.clicked.connect(self.play)
         
         self.h_slider = QSlider(Qt.Horizontal)
@@ -151,9 +154,11 @@ class Ui(QMainWindow):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
             self.play_btn.setIcon(
             self.style().standardIcon(QStyle.SP_MediaPause))
+            self.play_btn.setText("Pause")
         else:
             self.play_btn.setIcon(
             self.style().standardIcon(QStyle.SP_MediaPlay))
+            self.play_btn.setText("Play")
         
 
     def handel_buttons(self):
@@ -188,7 +193,9 @@ class Ui(QMainWindow):
 
 
     def start_processing(self):
-       # print(self.comboBox.currentText())
+        if not self.output_path:
+            self.output_path = self.output_line.text()
+        
         if(self.file_name):
             os.chdir(self.working_dir)
             numpy_frames = preprocessing(self.file_name)
@@ -205,6 +212,7 @@ class Ui(QMainWindow):
             self.tabWidget.setTabEnabled(1,True)
             self.tabWidget.setCurrentIndex(1)
             self.video_btn.setStyleSheet("background-color : #a8dadc")
+            self.home_btn.setStyleSheet("background-color : #1d3557")
 
             
             
@@ -214,9 +222,7 @@ class Ui(QMainWindow):
         if fileName:
             self.output_line.setText(fileName)
             self.output_path = fileName
-        else:
-            self.file_name = self.output_line.text()
-
+        
 
     def browse_video(self):
         options = QFileDialog.Options()
@@ -224,7 +230,6 @@ class Ui(QMainWindow):
         fileName, _ = QFileDialog.getOpenFileName(self,"Input Video", "","Videos (*.mp4 *.avi)", options=options)
         if fileName:
             self.input_line.setText(fileName)
-            #print(fileName)
             self.file_name = fileName
         else:
             self.file_name = self.input_line.text()

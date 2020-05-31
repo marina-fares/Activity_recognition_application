@@ -530,11 +530,7 @@ QVBoxLayout  {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">border : 0px;
-margin : 0px;
-padding : 0px;</string>
-   </property>
+   
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QFrame" name="frame">
@@ -565,7 +561,6 @@ padding : 0px;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border : 0px;
-margin : 0px;
 padding : 0px;</string>
       </property>
       <property name="frameShape">
@@ -594,11 +589,7 @@ padding : 0px;</string>
            <pointsize>-1</pointsize>
           </font>
          </property>
-         <property name="styleSheet">
-          <string notr="true">border : 0px;
-margin : 0px;
-padding : 0px;</string>
-         </property>
+        
          <property name="text">
           <string/>
          </property>
@@ -630,11 +621,7 @@ padding : 0px;</string>
            <pointsize>-1</pointsize>
           </font>
          </property>
-         <property name="styleSheet">
-          <string notr="true">border : 0px;
-margin : 0px;
-padding : 0px;</string>
-         </property>
+         
          <property name="text">
           <string/>
          </property>
@@ -672,11 +659,7 @@ padding : 0px;</string>
            <pointsize>-1</pointsize>
           </font>
          </property>
-         <property name="styleSheet">
-          <string notr="true">border : 0px;
-margin : 0px;
-padding : 0px;</string>
-         </property>
+         
          <property name="text">
           <string/>
          </property>
