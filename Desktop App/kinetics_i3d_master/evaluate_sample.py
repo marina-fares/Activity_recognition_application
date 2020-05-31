@@ -94,9 +94,10 @@ def getModel():
 
 
 
-def detect_activities(model_logits,model_predictions,rgb_saver,rgb_input,video_path,video_frames,output_path):
+def detect_activities(model_logits,model_predictions,rgb_saver,rgb_input,video_path,video_frames,output_path,progress_callback,status_callback):
   #restore the model weights from the checkpoints
   with tf.Session() as sess:
+    status_callback.emit("Restoring Model Checkpoints !!")
     eval_type = FLAGS.eval_type
     imagenet_pretrained = FLAGS.imagenet_pretrained
     if eval_type in ['rgb', 'rgb600', 'joint']:
@@ -120,7 +121,7 @@ def detect_activities(model_logits,model_predictions,rgb_saver,rgb_input,video_p
       # Run the i3d model on the list of videos and print the top 5 actions of every video.
       # First add an empty dimension to the sample video as the model takes as input
       # a batch of videos.
-      
+
       My_Counter=0
       My_clip =VideoFileClip(video_path)
       Video_duration = np.round(My_clip.duration,1) ##### by seconds 
@@ -138,6 +139,10 @@ def detect_activities(model_logits,model_predictions,rgb_saver,rgb_input,video_p
         os.mkdir(video_name)
       main_folder = Folder()
       main_folder.path = os.path.abspath(video_name)
+      progress_callback.emit(20)
+      status_callback.emit("Begin Video Activity Identification !!")
+      sample_progress = int(60 / len(sample_list))
+      progressBar_value = 20
 
       ######  intial values for cutting the long video to short videos
       for x in sample_list:
@@ -149,13 +154,9 @@ def detect_activities(model_logits,model_predictions,rgb_saver,rgb_input,video_p
         out_logits = out_logits[0]
         out_predictions = out_predictions[0]
         sorted_indices = np.argsort(out_predictions)[::-1]
-          #print('Norm of logits: %f' % np.linalg.norm(out_logits))
-          #print('\nTop 5 classes and probabilities')
         My_count=0
 
-        #kinetics_classes = [x.strip() for x in open(_LABEL_MAP_PATH)]
         for index in sorted_indices[:5]:
-            #print("%-22s %.2f%%" % (kinetics_classes[index], out_predictions[index] * 100))
             if My_count ==0 :
               result_text = kinetics_classes[index]
               My_count = My_count+1
@@ -191,13 +192,16 @@ def detect_activities(model_logits,model_predictions,rgb_saver,rgb_input,video_p
         for i in range( len(main_folder.sub_folder_list)):
           if main_folder.sub_folder_list[i].name == result_text:
             main_folder.sub_folder_list[i].videos_list.append(os.path.abspath(OutPut_name))
-            
         
-
+        progressBar_value = progressBar_value + sample_progress
+        progress_callback.emit(progressBar_value)
+            
   os.chdir(main_folder.path)
+  status_callback.emit("Begin Output Video Construction !!")
   # concatenate all the results videos 
   Result_Video = concatenate_videoclips(Output_Videos ,method='compose')
   Result_Video.write_videofile("outputVideo.mp4",fps=25)
+  progress_callback.emit(100)
   main_folder.main_video = os.path.abspath("outputVideo.mp4")
   return main_folder
 
@@ -211,12 +215,12 @@ class Activity_Detector():
 
 activity_detector = Activity_Detector()
 
-def activity_recogniton(video_path,video_frames,output_path,first_run):
+def activity_recogniton(video_path,video_frames,output_path,progress_callback,status_callback):
   global activity_detector
-  if first_run:
-    activity_detector.model_logits,activity_detector.model_predictions,activity_detector.rgb_saver,activity_detector.rgb_input = getModel()
-  main_folder = detect_activities(activity_detector.model_logits,activity_detector.model_predictions,activity_detector.rgb_saver,activity_detector.rgb_input,video_path,video_frames,output_path)
-  return main_folder
+  activity_detector.model_logits,activity_detector.model_predictions,activity_detector.rgb_saver,activity_detector.rgb_input = getModel()
+  main_folder = detect_activities(activity_detector.model_logits,activity_detector.model_predictions,activity_detector.rgb_saver,activity_detector.rgb_input,video_path,video_frames,output_path,
+                                  progress_callback,status_callback)           
+  return main_folder.path
 
 
 class Folder():
