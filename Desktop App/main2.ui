@@ -33,8 +33,7 @@ QWidget
 QTreeView, QListView
 {
     background-color: #a8dadc;
-    margin-left: 5px;
-color:black;
+    color:black;
 }
 /*
 QWidget:item:hover
@@ -64,7 +63,7 @@ QMenuBar::item:pressed
     background: #444;
     border: 1px solid #000;
     background-color: #1d3557;
-    margin-bottom:-1px;
+    margin-bottom:1px;
     padding-bottom:1px;
 }
 
@@ -128,7 +127,10 @@ QPushButton:pressed
 {
     background-color: #a8dadc;
 }
-
+QPushButton:disabled
+{
+    background-color: #1d3557;
+}
 QComboBox
 {
     selection-background-color: #1d3557;
@@ -323,7 +325,7 @@ QDockWidget::close-button:hover, QDockWidget::float-button:hover
 
 QDockWidget::close-button:pressed, QDockWidget::float-button:pressed
 {
-    padding: 1px -1px -1px 1px;
+    padding: 1px 1px 1px 1px;
 }
 
 QMainWindow::separator
@@ -365,6 +367,7 @@ QProgressBar
 {
     border-radius: 5px;
     text-align: center;
+    color: black;
 }
 
 QProgressBar::chunk
@@ -381,7 +384,7 @@ QTabBar::tab {
     padding-right: 10px;
     padding-top: 3px;
     padding-bottom: 2px;
-    margin-right: -1px;
+    margin-right: 1px;
 }
 
 QTabWidget::pane {
@@ -480,7 +483,7 @@ QSlider::groove:horizontal {
 }
 
 QSlider::handle:horizontal {
-    background: #1d3557;
+    background: #a8dadc;
     border: 1px solid #black;
     width: 14px;
     height: 14px;
@@ -584,7 +587,7 @@ padding : 0px;</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>-1</pointsize>
+           <pointsize>1</pointsize>
           </font>
          </property>
          <property name="text">
@@ -615,7 +618,7 @@ padding : 0px;</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>-1</pointsize>
+           <pointsize>1</pointsize>
           </font>
          </property>
          <property name="text">
@@ -652,7 +655,7 @@ padding : 0px;</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>-1</pointsize>
+           <pointsize>1</pointsize>
           </font>
          </property>
          <property name="text">
@@ -750,7 +753,7 @@ border:0px;</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>-1</pointsize>
+               <pointsize>1</pointsize>
               </font>
              </property>
              <property name="styleSheet">
@@ -774,7 +777,7 @@ background-color:#1d3557;</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>-1</pointsize>
+               <pointsize>1</pointsize>
               </font>
              </property>
              <property name="styleSheet">
@@ -851,7 +854,7 @@ color:black;</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>-1</pointsize>
+               <pointsize>1</pointsize>
               </font>
              </property>
              <property name="styleSheet">
@@ -881,6 +884,7 @@ background-color:#1d3557;</string>
              </property>
             </widget>
            </item>
+<<<<<<< HEAD
            <item row="11" column="1" colspan="3">
             <widget class="QLineEdit" name="command_line">
              <property name="minimumSize">
@@ -917,6 +921,9 @@ color:black;</string>
              </property>
             </widget>
            </item>
+=======
+           
+>>>>>>> 89928479401fe050d9941f8891a6eaa3c5a764cc
            <item row="0" column="1" colspan="3">
             <widget class="QPushButton" name="pushButton">
              <property name="styleSheet">
