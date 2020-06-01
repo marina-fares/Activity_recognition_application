@@ -26,6 +26,7 @@ class Ui(QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi('main2.ui', self)
+        self.showMaximized()
         self.show()
         
         self.start_video()
@@ -111,11 +112,18 @@ class Ui(QMainWindow):
         elif sys.platform == "win32":
             self.instance = vlc.Instance()
             self.mediaPlayer = self.instance.media_player_new()
+        
+        widget = QWidget()
+        widget.setStyleSheet("QWidget {background-color : #000000 }")
+        layout = QGridLayout()
         self.videoWidget = QVideoWidget()
-        self.videoWidget.setStyleSheet("background-color : black")
-        self.videoWidget.setMaximumHeight(350)
+        self.videoWidget.setMinimumHeight(250)
+        self.videoWidget.setMaximumHeight(400)
+        self.videoWidget.setStyleSheet("QWidget {background-color : #000000 }")
+        layout.addWidget(self.videoWidget)
+        widget.setLayout(layout)
         self.play_btn = QPushButton()
-        #self.play_btn.setEnabled(False)
+        self.play_btn.setEnabled(False)
         self.play_btn.setFixedHeight(30)
         self.play_btn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         self.play_btn.setText("Play")
@@ -129,7 +137,7 @@ class Ui(QMainWindow):
             #self.mediaPlayer.stateChanged.connect(self.mediaStateChanged)
             self.mediaPlayer.positionChanged.connect(self.positionChanged)
             self.mediaPlayer.durationChanged.connect(self.durationChanged)
-        self.gridLayout_5.addWidget(self.videoWidget)
+        self.gridLayout_5.addWidget(widget)
         self.gridLayout_5.addWidget(self.h_slider)
         self.gridLayout_5.addWidget(self.play_btn)
         self.frame_2.setLayout(self.gridLayout_5)
