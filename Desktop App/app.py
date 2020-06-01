@@ -51,17 +51,19 @@ class Ui(QMainWindow):
 
 
     def handel_style(self):
+        self.video_btn.setEnabled(False)
+        self.history_btn.setEnabled(False)
         self.progressBar.setVisible(False)
         self.progressBar.setValue(0)
         self.tabWidget.setCurrentIndex(0)
         self.home_btn.setStyleSheet("background-color : #a8dadc; border:0px; margin:0px")
-        self.output_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px; color:black; }"
+        self.output_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px;  }"
                                     "QPushButton:pressed { background-color: #a8dadc }" )
-        self.browse_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px; color:black; }"
+        self.browse_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px;  }"
             "QPushButton:pressed { background-color: #a8dadc }" )
-        self.start_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px; color:black; }"
+        self.start_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px;  }"
             "QPushButton:pressed { background-color: #a8dadc }" )
-        self.play_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px; color:black; }"
+        self.play_btn.setStyleSheet("QPushButton { background-color: #1d3557; border:1px solid black; border-radius:5px; color:white; }"
             "QPushButton:pressed { background-color: #a8dadc }" )
 
 
@@ -105,15 +107,15 @@ class Ui(QMainWindow):
 
     def start_video(self):
         if sys.platform.startswith('linux'):	
-            self.mediaPlayer = QmediaPlayer(None, QmediaPlayer.VideoSurface)
+            self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         elif sys.platform == "win32":
             self.instance = vlc.Instance()
             self.mediaPlayer = self.instance.media_player_new()
         self.videoWidget = QVideoWidget()
         self.videoWidget.setStyleSheet("background-color : black")
-        self.videoWidget.setFixedHeight(300)
+        self.videoWidget.setMaximumHeight(350)
         self.play_btn = QPushButton()
-        self.play_btn.setEnabled(False)
+        #self.play_btn.setEnabled(False)
         self.play_btn.setFixedHeight(30)
         self.play_btn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         self.play_btn.setText("Play")
@@ -182,6 +184,7 @@ class Ui(QMainWindow):
             self.timer.stop()
             if not self.isPaused:
                 self.Stop()
+
     
     def Stop(self):
         self.h_slider.setValue(0)
@@ -197,7 +200,10 @@ class Ui(QMainWindow):
 	    self.h_slider.setRange(0, duration)
 
     def setPosition(self, position):
-	    self.mediaPlayer.set_position(position / 1000.0)
+        if sys.platform.startswith('linux'):
+            self.mediaPlayer.setPosition(position)
+        elif sys.platform == "win32":
+    	    self.mediaPlayer.set_position(position / 1000.0)
 
     def handleError(self):
 	    self.play_btn.setEnabled(False)
@@ -266,7 +272,10 @@ class Ui(QMainWindow):
         self.statusBar_label.setText("Model Finished Processing Input Video !!")
 
     def progress_fn(self,progress_value):
-        self.progressBar.setValue(progress_value)    
+        self.progressBar.setValue(progress_value)
+        
+        if self.progressBar.value() >= 50:
+            self.progressBar.setStyleSheet("color: white;border-radius: 5px;")  
 
     def draw_folder_tree(self,path):
         self.draw(path)
@@ -277,6 +286,10 @@ class Ui(QMainWindow):
         self.home_btn.setStyleSheet("background-color : #1d3557")
         self.progressBar.setVisible(False)
         self.progressBar.setValue(0)
+
+        self.video_btn.setEnabled(True)
+        self.play_btn.setEnabled(True)
+        self.history_btn.setEnabled(True)
     
             
     def output_path_(self):
