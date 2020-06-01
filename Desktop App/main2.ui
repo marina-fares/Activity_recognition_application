@@ -740,92 +740,7 @@ border:0px;</string>
            <number>8</number>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="2" column="1" colspan="2">
-            <widget class="QLineEdit" name="output_line">
-             <property name="minimumSize">
-              <size>
-               <width>188</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>13</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="contextMenuPolicy">
-              <enum>Qt::PreventContextMenu</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border:1px solid black;
-color:black;</string>
-             </property>
-             <property name="dragEnabled">
-              <bool>true</bool>
-             </property>
-             <property name="readOnly">
-              <bool>false</bool>
-             </property>
-             <property name="placeholderText">
-              <string notr="true" comment="yes" extracomment="yes">Output path</string>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>80</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="1" colspan="2">
-            <widget class="QLineEdit" name="input_line">
-             <property name="minimumSize">
-              <size>
-               <width>188</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>13</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border:1px solid black;
-color:black;</string>
-             </property>
-             <property name="dragEnabled">
-              <bool>true</bool>
-             </property>
-             <property name="readOnly">
-              <bool>false</bool>
-             </property>
-             <property name="placeholderText">
-              <string notr="true" comment="yes" extracomment="yes">Enter your path</string>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="3">
+           <item row="4" column="3">
             <widget class="QPushButton" name="output_btn">
              <property name="minimumSize">
               <size>
@@ -849,7 +764,7 @@ background-color:#1d3557;</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="3">
+           <item row="2" column="3">
             <widget class="QPushButton" name="browse_btn">
              <property name="minimumSize">
               <size>
@@ -879,7 +794,7 @@ background-color:#1d3557;</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="4">
+           <item row="2" column="4">
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -895,7 +810,7 @@ background-color:#1d3557;</string>
              </property>
             </spacer>
            </item>
-           <item row="3" column="1" colspan="2">
+           <item row="6" column="1" colspan="2">
             <widget class="QComboBox" name="comboBox">
              <property name="minimumSize">
               <size>
@@ -926,7 +841,7 @@ color:black;</string>
              </item>
             </widget>
            </item>
-           <item row="3" column="3">
+           <item row="6" column="3">
             <widget class="QPushButton" name="start_btn">
              <property name="minimumSize">
               <size>
@@ -950,7 +865,7 @@ background-color:#1d3557;</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1" colspan="3">
+           <item row="9" column="1" colspan="3">
             <widget class="QProgressBar" name="progressBar">
              <property name="minimumSize">
               <size>
@@ -966,7 +881,7 @@ background-color:#1d3557;</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1" colspan="3">
+           <item row="11" column="1" colspan="3">
             <widget class="QLineEdit" name="command_line">
              <property name="minimumSize">
               <size>
@@ -1024,6 +939,156 @@ color:black;</string>
               <bool>true</bool>
              </property>
             </widget>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="QLineEdit" name="output_line">
+             <property name="minimumSize">
+              <size>
+               <width>188</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="contextMenuPolicy">
+              <enum>Qt::PreventContextMenu</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid black;
+color:black;</string>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="placeholderText">
+              <string notr="true" comment="yes" extracomment="yes">Output path</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="input_line">
+             <property name="minimumSize">
+              <size>
+               <width>188</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid black;
+color:black;</string>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="placeholderText">
+              <string notr="true" comment="yes" extracomment="yes">Enter your path</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>80</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1">
+            <spacer name="verticalSpacer_1">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="1">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="1">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="1">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
