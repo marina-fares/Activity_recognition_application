@@ -41,6 +41,7 @@ class Ui(QMainWindow):
 
         self.history_layout = QGridLayout()
         self.tab_3.setLayout(self.history_layout)
+
         self.statusBar = QStatusBar()
         self.setStatusBar(self.statusBar)
         self.statusBar_label = QLabel("Program Ready !!",self)
@@ -50,7 +51,7 @@ class Ui(QMainWindow):
         self.threadpool = QThreadPool()
         print("Multithreading with maximum %d threads" % self.threadpool.maxThreadCount())
 
-
+        
     def handel_style(self):
         self.video_btn.setEnabled(False)
         self.history_btn.setEnabled(False)
@@ -77,6 +78,7 @@ class Ui(QMainWindow):
             self.tree.setModel(self.model)
             self.tree.setRootIndex(self.model.index(dirpath))
             self.gridLayout_5.addWidget(self.tree)
+            self.tree.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             self.frame_2.setLayout(self.gridLayout_5)
             self.first_run = False
             self.tree.doubleClicked.connect(self.runvideo)
@@ -84,6 +86,7 @@ class Ui(QMainWindow):
             dirpath = main_folder_path            
             self.model.setRootPath(dirpath)
             self.tree.setModel(self.model)
+            self.tree.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
             self.tree.setRootIndex(self.model.index(dirpath))
             self.tree.doubleClicked.connect(self.runvideo)
 
@@ -117,7 +120,7 @@ class Ui(QMainWindow):
         widget.setStyleSheet("QWidget {background-color : #000000 }")
         layout = QGridLayout()
         self.videoWidget = QVideoWidget()
-        self.videoWidget.setMinimumHeight(250)
+        self.videoWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.videoWidget.setMaximumHeight(400)
         self.videoWidget.setStyleSheet("QWidget {background-color : #000000 }")
         layout.addWidget(self.videoWidget)
@@ -262,6 +265,7 @@ class Ui(QMainWindow):
             os.chdir(self.working_dir)
             numpy_frames = preprocessing(self.file_name)
             self.progressBar.setVisible(True)
+            self.progressBar.setStyleSheet("color:Black ;border-radius: 5px;border:1px solid black")
             self.show_status("Starting Model !!")
             if not self.output_path:
                 self.output_path = os.path.dirname(os.path.abspath(self.file_name))
@@ -283,7 +287,7 @@ class Ui(QMainWindow):
         self.progressBar.setValue(progress_value)
         
         if self.progressBar.value() >= 50:
-            self.progressBar.setStyleSheet("color: white;border-radius: 5px;")  
+            self.progressBar.setStyleSheet("color: white;border-radius: 5px;border:1px solid black")  
 
     def draw_folder_tree(self,path):
         self.draw(path)
