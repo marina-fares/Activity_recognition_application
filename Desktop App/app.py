@@ -27,6 +27,8 @@ class Ui(QMainWindow):
         super(Ui, self).__init__()
         uic.loadUi('main2.ui', self)
         self.showMaximized()
+        self.setWindowTitle("Activity Recognition")
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.show()
         
         self.start_video()
@@ -107,6 +109,9 @@ class Ui(QMainWindow):
     def runvideo(self, signal):
         file_path=self.model_h.filePath(signal)
         self.abrir(file_path)
+        video_name = os.path.basename(file_path)
+        self.video_title.setText(video_name)
+        self.video_title.setAlignment(QtCore.Qt.AlignCenter)
 
 
     def start_video(self):
@@ -125,6 +130,7 @@ class Ui(QMainWindow):
         self.videoWidget.setStyleSheet("QWidget {background-color : #000000 }")
         layout.addWidget(self.videoWidget)
         widget.setLayout(layout)
+
         self.play_btn = QPushButton()
         self.play_btn.setEnabled(False)
         self.play_btn.setFixedHeight(30)
@@ -132,18 +138,26 @@ class Ui(QMainWindow):
         self.play_btn.setText("Play")
         self.play_btn.setStyleSheet("color : white")
         self.play_btn.clicked.connect(self.play)
+
         self.h_slider = QSlider(Qt.Horizontal)
         self.h_slider.setMaximum(1000)
         self.h_slider.sliderMoved.connect(self.setPosition)
+
+        self.video_title = QtWidgets.QLabel()
+        self.video_title.setStyleSheet("QWidget {color : #000000;text-align:center;font-size:15px; }")
+
         if sys.platform.startswith('linux'):
             self.mediaPlayer.setVideoOutput(self.videoWidget)
             #self.mediaPlayer.stateChanged.connect(self.mediaStateChanged)
             self.mediaPlayer.positionChanged.connect(self.positionChanged)
             self.mediaPlayer.durationChanged.connect(self.durationChanged)
+
         self.gridLayout_5.addWidget(widget)
         self.gridLayout_5.addWidget(self.h_slider)
         self.gridLayout_5.addWidget(self.play_btn)
+        self.gridLayout_5.addWidget(self.video_title)
         self.frame_2.setLayout(self.gridLayout_5)
+
         self.isPaused = False
         if sys.platform == "win32":
             self.timer = QTimer(self)
