@@ -9,4 +9,5 @@ Original implementation found in this <a href='https://github.com/Nadern96/kinet
 ### Running the code
 
 make virtual environment:
-'''virtualenv mypython'''
+
+$ virtualenv mypython
