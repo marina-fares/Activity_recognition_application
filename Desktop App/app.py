@@ -25,7 +25,7 @@ from kinetics_i3d_master.evaluate_sample import activity_recogniton
 class Ui(QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
-        uic.loadUi('main2.ui', self)
+        uic.loadUi('main.ui', self)
         self.showMaximized()
         self.setWindowTitle("Activity Recognition")
         self.setWindowIcon(QtGui.QIcon('icon.png'))
