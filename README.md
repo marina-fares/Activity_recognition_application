@@ -8,12 +8,13 @@ Original implementation found in this <a href='https://github.com/Nadern96/kinet
 
 ### install the application
 
-make virtual environment, activate env, clone the repo and install requirments:
+make virtual environment, activate env, clone the repo, install requirments then run the application:
 ```
 $ virtualenv env  
 $ . env/bin/activate
 $ git clone https://github.com/marina-fares/Activity_recognition_application.git
 $ pip install -r requirements.txt
+$ python3 app.py
 ```
 ### user interface
 
