@@ -17,6 +17,6 @@ $ pip install -r requirements.txt
 ```
 ### user interface
 
-![alt text](https://drive.google.com/file/d/1_87Ky5PmQKeEo305HUyan1bWQ7CNmgUi/view?usp=sharing)
+<img src='img1.png'>
 
 
