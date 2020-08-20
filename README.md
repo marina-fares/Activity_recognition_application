@@ -17,6 +17,9 @@ $ pip install -r requirements.txt
 ```
 ### user interface
 
+You can add your video path and then waiting for the output videos
 <img src='img1.png'>
-
-
+Here your output is ready
+<img src='img3.png'>
+Finallu you can see hisrory page for the provious videos
+<img src='img5.png'>
