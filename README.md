@@ -6,11 +6,15 @@ Desktop application for video activity recognition that asks the user to input t
 
 Original implementation found in this <a href='https://github.com/Nadern96/kinetics-i3d'> repository</a>
 
-### Running the code
-make virtual environment:
+### install the application
+
+make virtual environment, activate env, clone the repo and install requirments:
 ```
 $ virtualenv env  
 $ . env/bin/activate
 $ git clone https://github.com/marina-fares/Activity_recognition_application.git
 $ pip install -r requirements.txt
 ```
+### user interface
+
+
