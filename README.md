@@ -18,8 +18,8 @@ $ pip install -r requirements.txt
 ### user interface
 
 You can add your video path and then waiting for the output videos
-<img src='img1.png'><br/>
+<img src='img1.png' width='500px'><br/>
 Here your output is ready<br/>
-<img src='img3.png'><br/>
+<img src='img3.png' width='500px'><br/>
 Finallu you can see hisrory page for the provious videos<br/>
-<img src='img5.png'><br/>
+<img src='img5.png' width='500px'><br/>
